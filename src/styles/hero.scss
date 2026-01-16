@@ -1,0 +1,108 @@
+@use '../styles/globals.scss' as *;
+
+.hero {
+  min-height: 100vh;
+  @include flex-center;
+  padding: 6rem 0;
+  position: relative;
+
+  @media (max-width: 768px) {
+    padding: 4rem 0;
+  }
+
+  .hero-content {
+    text-align: center;
+    animation: fadeInUp 1s ease;
+
+    .badge {
+      display: inline-block;
+      padding: 0.75rem 2rem;
+      background: rgba(255, 107, 157, 0.15);
+      border: 1px solid rgba(255, 107, 157, 0.3);
+      border-radius: 50px;
+      color: $primary-pink;
+      font-weight: 600;
+      margin-bottom: 2rem;
+      animation: pulse 2s infinite;
+    }
+
+    h1 {
+      font-size: 4.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+
+      @media (max-width: 1024px) {
+        font-size: 3.5rem;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 2.5rem;
+      }
+
+      .gradient-name {
+        @include gradient-text;
+      }
+    }
+
+    .subtitle {
+      font-size: 1.5rem;
+      color: rgba(255, 255, 255, 0.8);
+      margin-bottom: 3rem;
+      line-height: 1.8;
+
+      @media (max-width: 768px) {
+        font-size: 1.2rem;
+      }
+
+      .highlight {
+        color: $primary-pink;
+        font-weight: 600;
+      }
+    }
+
+    .cta-buttons {
+      display: flex;
+      gap: 1.5rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+  }
+
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: float 3s ease-in-out infinite;
+
+    .mouse {
+      width: 30px;
+      height: 50px;
+      border: 2px solid $primary-pink;
+      border-radius: 20px;
+      display: flex;
+      justify-content: center;
+      padding-top: 10px;
+
+      .wheel {
+        width: 4px;
+        height: 10px;
+        background: $primary-pink;
+        border-radius: 2px;
+        animation: scroll 2s ease-in-out infinite;
+      }
+    }
+  }
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(15px);
+    opacity: 0;
+  }
+}

@@ -1,0 +1,55 @@
+@use '../styles/globals.scss' as *;
+
+.projects {
+  .projects-grid {
+    .project-card {
+      @include card-style;
+      cursor: pointer;
+      animation: fadeInUp 1s ease both;
+
+      @for $i from 1 through 6 {
+        &:nth-child(#{$i}) {
+          animation-delay: #{$i * 0.1}s;
+        }
+      }
+
+      .project-icon {
+        font-size: 4rem;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+        transition: transform 0.3s ease;
+      }
+
+      &:hover .project-icon {
+        transform: scale(1.2) rotate(5deg);
+      }
+
+      h3 {
+        font-size: 1.8rem;
+        margin-bottom: 1rem;
+        @include gradient-text;
+      }
+
+      p {
+        color: rgba(255, 255, 255, 0.8);
+        line-height: 1.8;
+        margin-bottom: 1.5rem;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.75rem;
+
+        .tag {
+          padding: 0.5rem 1rem;
+          background: rgba(255, 107, 157, 0.15);
+          border: 1px solid rgba(255, 107, 157, 0.3);
+          border-radius: 20px;
+          font-size: 0.85rem;
+          color: $primary-pink;
+        }
+      }
+    }
+  }
+}

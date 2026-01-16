@@ -1,0 +1,149 @@
+@use '../styles/globals.scss' as *;
+
+.contact {
+  background: rgba(15, 5, 32, 0.5);
+
+  .contact-container {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+
+    @media (max-width: 968px) {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-info {
+      animation: fadeInUp 1s ease 0.2s both;
+
+      .info-cards {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .info-card {
+          @include card-style;
+          display: flex;
+          align-items: center;
+          gap: 1.5rem;
+          text-decoration: none;
+          color: white;
+
+          .icon {
+            font-size: 2.5rem;
+            transition: transform 0.3s ease;
+          }
+
+          &:hover .icon {
+            transform: scale(1.2);
+          }
+
+          .details {
+            flex: 1;
+
+            .label {
+              font-size: 0.9rem;
+              color: rgba(255, 255, 255, 0.6);
+              margin-bottom: 0.25rem;
+            }
+
+            .value {
+              font-size: 1.1rem;
+              font-weight: 600;
+              @include gradient-text;
+            }
+          }
+
+          .arrow {
+            font-size: 1.5rem;
+            color: $primary-pink;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+          }
+
+          &:hover .arrow {
+            opacity: 1;
+          }
+        }
+      }
+
+      .quote-card {
+        @include card-style;
+        text-align: center;
+        margin-top: 2rem;
+        padding: 2.5rem;
+
+        .quote-icon {
+          font-size: 3rem;
+          margin-bottom: 1rem;
+        }
+
+        p {
+          font-style: italic;
+          color: rgba(255, 255, 255, 0.8);
+          line-height: 1.8;
+        }
+      }
+    }
+
+    .contact-form-section {
+      animation: fadeInUp 1s ease 0.4s both;
+
+      h3 {
+        font-size: 2rem;
+        margin-bottom: 2rem;
+        @include gradient-text;
+      }
+
+      .contact-form {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+
+        .form-group {
+          display: flex;
+          flex-direction: column;
+          gap: 0.5rem;
+
+          label {
+            font-weight: 600;
+            color: rgba(255, 255, 255, 0.9);
+          }
+
+          input,
+          textarea {
+            padding: 1rem 1.5rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 182, 193, 0.2);
+            border-radius: 12px;
+            color: white;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+
+            &:focus {
+              outline: none;
+              border-color: $primary-pink;
+              background: rgba(255, 255, 255, 0.08);
+              box-shadow: 0 0 20px rgba(255, 107, 157, 0.2);
+            }
+
+            &::placeholder {
+              color: rgba(255, 255, 255, 0.4);
+            }
+          }
+
+          textarea {
+            resize: vertical;
+            min-height: 150px;
+          }
+        }
+
+        button[type="submit"] {
+          @extend .btn;
+          @extend .btn-primary;
+          width: 100%;
+          font-size: 1.1rem;
+        }
+      }
+    }
+  }
+}
